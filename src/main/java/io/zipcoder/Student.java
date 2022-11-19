@@ -11,7 +11,7 @@ public class Student {
 
     ArrayList<Double> examScores;
 
-    public Double examScore;
+    public double examScore;
 
     public int numberOfExamsTaken;
 
@@ -30,8 +30,9 @@ public class Student {
         return examScore;
     }
 
-    public void setExamScore(double examScore) {
-        this.examScore = examScore;
+    public void setExamScore(int examNumber, double newScore) {
+       examScores.indexOf(examNumber);
+       examScores.set(examNumber - 1, newScore);
     }
 
     public String getFirstName() {
@@ -74,13 +75,22 @@ public class Student {
         } return results;
     }
 
-    public void addExamScore (Double examScore){
-        //turn array into arrayList
-        List<Double> testScoresList = new ArrayList<>(Arrays.asList(testScores));
-        //add the examScore to the end of the arrayList
-        testScoresList.add(examScore);
-        //turn this back into an array
-        //examScores = testScoresList.toArray();
+    public void addExamScore (double examScore){
+        //using arraylist, add the exam score to the array list
+        examScores.add(examScore);
+    }
 
+    public double getAverageExamScore(){
+        double divisor = examScores.size();
+        double dividend = 0;
+        for(Double score : examScores){
+            dividend = dividend + score;
+        }
+        return dividend / divisor;
+    }
+
+    @Override
+    public String toString(){
+        return "";
     }
 }
