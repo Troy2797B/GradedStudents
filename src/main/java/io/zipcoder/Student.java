@@ -1,5 +1,8 @@
 package io.zipcoder;
 
+import org.w3c.dom.ls.LSOutput;
+
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -67,10 +70,10 @@ public class Student {
 //            sb.append(strArray[i]);
 //        }
        String results = "";
-        int size = testScores.length;
+        int size = examScores.size();
         String[] str = new String[size];
         for(int i=0; i < size; i++) {
-            str[i] = testScores[i].toString();
+            str[i] = examScores.get(i).toString();
             results = results + str[i] + "\n";
         } return results;
     }
@@ -90,7 +93,12 @@ public class Student {
     }
 
     @Override
-    public String toString(){
-        return "";
+    public String toString() {
+        double T= getAverageExamScore();
+       return "Student Name: " + this.firstName + " " + this.lastName+  "\nAverage Score: " + String.format("%,.2f", T) + "\nExam Scores:\n" + getExamScores();
+
+//        getAverageExamScore();
+//        getExamScores();
+//        return super.toString();
     }
 }

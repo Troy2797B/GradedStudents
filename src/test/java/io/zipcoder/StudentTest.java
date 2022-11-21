@@ -1,6 +1,5 @@
 package io.zipcoder;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -26,8 +25,8 @@ public class StudentTest {
         Double[] testScores = {100.0, 98.6, 104.2};
         Student troy = new Student(firstName, lastName, testScores);
         //when: you call this method
-        String expected = "100.0\n98.6\n104.2\n";
-        String actual = troy.getExamScores();
+        String expected = "103.0\n96.5\n92.9\n";
+        String actual = charnae.getExamScores();
         //then we get the results
         assertEquals(expected, actual);
     }
@@ -58,6 +57,16 @@ public class StudentTest {
         double actual = charnae.getAverageExamScore();
         double expected = 97.46;
         //then: it returns the average of the elements in the arraylist
-        assertEquals(expected, actual, 0.01);
+        assertEquals(expected, actual, 0.1);
+    }
+    @Test
+    public void toStringTest(){
+        //given: a student thing
+
+        //when: you call this method
+        String expected = "Student Name: Charnae Warrick\nAverage Score: 97.47\nExam Scores:\n103.0\n96.5\n92.9\n";
+        String actual = charnae.toString();
+        //then: you should print their whole government information... allegedly
+        assertEquals(expected, actual);
     }
 }
